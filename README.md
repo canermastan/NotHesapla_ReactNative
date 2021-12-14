@@ -1,2 +1,2 @@
 # Not Hesapla | React Native
-!<img src="ScreenShot.jpeg" width="200">
+!<img src="ScreenShot.jpeg" width="300">
