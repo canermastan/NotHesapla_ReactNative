@@ -1,2 +1,2 @@
 # Not Hesapla | React Native
-![Alt text](https://github.com/canermastan/NotHesapla_ReactNative/blob/main/ScreenShot.jpeg?raw=true "Screenshot" =x250)
+!<img src="Screenshot.jpeg" width="200">
