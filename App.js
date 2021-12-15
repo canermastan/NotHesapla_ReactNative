@@ -42,8 +42,8 @@ const image = {
 };
 
 const App = () => {
-  const [vize, setVize] = useState(0);
-  const [final, setFinal] = useState(0);
+  let vize = 0
+  let final = 0
   const [not, setNot] = useState();
 
   function handleCalculate() {
@@ -61,12 +61,12 @@ const App = () => {
         <Input
           placeholder="Vize Notunuz"
           leftIcon={{type: 'font-awesome', name: 'chevron-right'}}
-          onChangeText={value => setVize(value)}
+          onChangeText={value => vize = value}
         />
         <Input
           placeholder="Final Notunuz"
           leftIcon={{type: 'font-awesome', name: 'chevron-right'}}
-          onChangeText={value => setFinal(value)}
+          onChangeText={value => final  = value}
         />
 
         <Chip
