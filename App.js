@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    marginLeft: 0.5,
+    marginLeft: 0.3,
   },
   chip: {
     size: 20,
