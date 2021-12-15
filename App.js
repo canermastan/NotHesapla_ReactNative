@@ -42,16 +42,12 @@ const image = {
 };
 
 const App = () => {
-<<<<<<< HEAD
+
   const [not, setNot] = useState();
   const [harfNotu, setHarfNotu] = useState('')
   const [vize, setVize] = useState(0);
   const [final, setFinal] = useState(0);
-=======
-  let vize = 0
-  let final = 0
-  const [not, setNot] = useState();
->>>>>>> 8a651c56340d36e5d49ad007148de0cdcc201559
+
 
   function handleCalculate() {
     if (vize <= 100 && vize >= 0 && final <= 100 && final >= 0) {
