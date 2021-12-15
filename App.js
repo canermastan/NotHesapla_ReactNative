@@ -76,12 +76,12 @@ const App = () => {
         <Input
           placeholder="Vize Notunuz"
           leftIcon={{type: 'font-awesome', name: 'chevron-right'}}
-          onChangeText={value => vize = value}
+          onChangeText={value => setVize(value)}
         />
         <Input
           placeholder="Final Notunuz"
           leftIcon={{type: 'font-awesome', name: 'chevron-right'}}
-          onChangeText={value => final  = value}
+          onChangeText={value => setFinal(value)}
         />
 
         <Chip
