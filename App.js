@@ -7,39 +7,18 @@
  */
 
 import React, {useState} from 'react';
-import type {Node} from 'react';
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
-  useColorScheme,
   View,
-  Image,
-  TextInput,
-  TouchableOpacity,
   ImageBackground,
 } from 'react-native';
 
 import {
-  Colors,
-  DebugInstructions,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-import {
   Chip,
-  Button,
-  ThemeProvider,
-  Header,
   Input,
 } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
-const image = {
-  uri: 'https://www.ozlemfm.net/wp-content/uploads/2013/05/soft-background-sof.jpg', // BACKGROUND
-};
 
 const App = () => {
 
@@ -70,7 +49,7 @@ const App = () => {
   }
 
   return (
-    <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+    <ImageBackground source={require('./src/assets/images/background.jpg')} resizeMode="cover" style={styles.image}>
       <View style={styles.container}>
         <Text style={styles.title}>Not Hesapla</Text>
         <Input
@@ -87,7 +66,7 @@ const App = () => {
         <Chip
           title="Hesapla"
           onPress={() => handleCalculate()}
-          ViewComponent={LinearGradient} // Don't forget this!
+          ViewComponent={LinearGradient}
           linearGradientProps={{
             colors: ['red', 'pink'],
             start: {x: 0, y: 0.5},
@@ -98,16 +77,17 @@ const App = () => {
         <Text style={styles.text}>Notunuz</Text>
         <Text style={styles.text}>{not}</Text>
         <Text style={styles.text}>{harfNotu}</Text>
-      </View>
+        {
+          harfNotu != '' ?
+          <Text style={[styles.text, {fontSize:15}]}>(Harf notu üniversiteye göre değişiklik gösterebilir)</Text>
+          : <></>
+        }
+        </View>
     </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
   title: {
     fontSize: 50,
     color: '#212121',
