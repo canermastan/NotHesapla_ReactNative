@@ -1,5 +1,5 @@
 # Not Hesapla | React Native
-React Native Elements used.
+React Native Elements kullanıldı.
 <br>
 Kodları incelemek için App.js dosyasına bakmanız yeterlidir.
 <br>
