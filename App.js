@@ -27,23 +27,28 @@ const App = () => {
   const [vize, setVize] = useState(0);
   const [final, setFinal] = useState(0);
 
-
   function handleCalculate() {
-    if (vize <= 100 && vize >= 0 && final <= 100 && final >= 0) {
-      sonuc = vize * 0.4 + final * 0.6
-      setNot(sonuc);
-
-      if (sonuc >= 85) setHarfNotu('AA')
-      else if (sonuc >= 75 && sonuc < 85) setHarfNotu('BA')
-      else if (sonuc >= 65 && sonuc < 75) setHarfNotu('BB')
-      else if (sonuc >= 57 && sonuc < 65) setHarfNotu('CB')
-      else if (sonuc >= 50 && sonuc < 57) setHarfNotu('CC')
-      else if (sonuc >= 40 && sonuc < 50) setHarfNotu('DC')
-      else if (sonuc >= 30 && sonuc < 40) setHarfNotu('FD')
-      else if (sonuc >= 0 && sonuc < 30) setHarfNotu('FF')
-
-    } else {
-      setNot('Notları doğru giriniz');
+    if (vize != 0 || final != 0){
+      if (vize <= 100 && vize >= 0 && final <= 100 && final >= 0) {
+        sonuc = vize * 0.4 + final * 0.6
+        setNot(sonuc);
+  
+        if (sonuc >= 85) setHarfNotu('AA')
+        else if (sonuc >= 75 && sonuc < 85) setHarfNotu('BA')
+        else if (sonuc >= 65 && sonuc < 75) setHarfNotu('BB')
+        else if (sonuc >= 57 && sonuc < 65) setHarfNotu('CB')
+        else if (sonuc >= 50 && sonuc < 57) setHarfNotu('CC')
+        else if (sonuc >= 40 && sonuc < 50) setHarfNotu('DC')
+        else if (sonuc >= 30 && sonuc < 40) setHarfNotu('FD')
+        else if (sonuc >= 0 && sonuc < 30) setHarfNotu('FF')
+  
+      } else {
+        setNot('Notları doğru giriniz');
+        setHarfNotu('')
+      } 
+    }
+    else{
+      setNot('');
       setHarfNotu('')
     }
   }
@@ -74,7 +79,8 @@ const App = () => {
           }}
         />
 
-        <Text style={styles.text}>Notunuz</Text>
+        { /* NEED REFACTORING FOR CLEAN CODE */ }
+        {harfNotu != '' ? <Text style={styles.text}>Notunuz</Text> : <></>}
         <Text style={styles.text}>{not}</Text>
         <Text style={styles.text}>{harfNotu}</Text>
         {
