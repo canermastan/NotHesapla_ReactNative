@@ -22,34 +22,35 @@ import LinearGradient from 'react-native-linear-gradient';
 
 const App = () => {
 
-  const [not, setNot] = useState();
-  const [harfNotu, setHarfNotu] = useState('')
-  const [vize, setVize] = useState(0);
+  // Grade:not, Midterm:vize, Letter Grade: harf notu
+  const [grade, setGrade] = useState();
+  const [letterGrade, setLetterGrade] = useState('')
+  const [midterm, setMidterm] = useState(0);
   const [final, setFinal] = useState(0);
 
   function handleCalculate() {
-    if (vize != 0 || final != 0){
-      if (vize <= 100 && vize >= 0 && final <= 100 && final >= 0) {
-        sonuc = vize * 0.4 + final * 0.6
-        setNot(sonuc);
+    if (midterm != 0 || final != 0){
+      if (midterm <= 100 && midterm >= 0 && final <= 100 && final >= 0) {
+        result = midterm * 0.4 + final * 0.6
+        setGrade(result)
   
-        if (sonuc >= 85) setHarfNotu('AA')
-        else if (sonuc >= 75 && sonuc < 85) setHarfNotu('BA')
-        else if (sonuc >= 65 && sonuc < 75) setHarfNotu('BB')
-        else if (sonuc >= 57 && sonuc < 65) setHarfNotu('CB')
-        else if (sonuc >= 50 && sonuc < 57) setHarfNotu('CC')
-        else if (sonuc >= 40 && sonuc < 50) setHarfNotu('DC')
-        else if (sonuc >= 30 && sonuc < 40) setHarfNotu('FD')
-        else if (sonuc >= 0 && sonuc < 30) setHarfNotu('FF')
+        if (result >= 85) setLetterGrade('AA')
+        else if (result >= 75 && result < 85) setLetterGrade('BA')
+        else if (result >= 65 && result < 75) setLetterGrade('BB')
+        else if (result >= 57 && result < 65) setLetterGrade('CB')
+        else if (result >= 50 && result < 57) setLetterGrade('CC')
+        else if (result >= 40 && result < 50) setLetterGrade('DC')
+        else if (result >= 30 && result < 40) setLetterGrade('FD')
+        else if (result >= 0 && result < 30) setLetterGrade('FF')
   
       } else {
-        setNot('Notları doğru giriniz');
-        setHarfNotu('')
+        setGrade('Notları doğru giriniz')
+        setLetterGrade('')
       } 
     }
     else{
-      setNot('');
-      setHarfNotu('')
+      setGrade('')
+      setLetterGrade('')
     }
   }
 
@@ -60,7 +61,7 @@ const App = () => {
         <Input
           placeholder="Vize Notunuz"
           leftIcon={{type: 'font-awesome', name: 'chevron-right'}}
-          onChangeText={value => setVize(value)}
+          onChangeText={value => setMidterm(value)}
         />
         <Input
           placeholder="Final Notunuz"
@@ -80,11 +81,11 @@ const App = () => {
         />
 
         { /* NEED REFACTORING FOR CLEAN CODE */ }
-        {harfNotu != '' ? <Text style={styles.text}>Notunuz</Text> : <></>}
-        <Text style={styles.text}>{not}</Text>
-        <Text style={styles.text}>{harfNotu}</Text>
+        {letterGrade != '' ? <Text style={styles.text}>Notunuz</Text> : <></>}
+        <Text style={styles.text}>{grade}</Text>
+        <Text style={styles.text}>{letterGrade}</Text>
         {
-          harfNotu != '' ?
+          letterGrade != '' ?
           <Text style={[styles.text, {fontSize:15}]}>(Harf notu üniversiteye göre değişiklik gösterebilir)</Text>
           : <></>
         }
