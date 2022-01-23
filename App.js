@@ -65,6 +65,7 @@ const App = () => {
         />
 
         <Chip
+          style={{marginLeft:15,marginRight:15}}
           title="Hesapla"
           onPress={() => handleCalculate()}
           ViewComponent={LinearGradient}
@@ -144,6 +145,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     marginLeft: 0.3,
+    marginLeft:15,
+    marginRight:15
   },
   chip: {
     size: 20,
