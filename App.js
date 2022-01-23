@@ -19,14 +19,16 @@ import {
   Input,
 } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
+import returnLetterGrade from './letterGrade';
 
 const App = () => {
-
   // Grade:not, Midterm:vize, Letter Grade: harf notu
   const [grade, setGrade] = useState();
-  const [letterGrade, setLetterGrade] = useState('')
+  const [letterGrade, setLetterGrade] = useState('');
   const [midterm, setMidterm] = useState(0);
   const [final, setFinal] = useState(0);
+  const [gecmeNotu, setGecmeNotu] = useState(45);
+  let result;
 
   function handleCalculate() {
     if (midterm != 0 || final != 0){
@@ -34,14 +36,7 @@ const App = () => {
         result = midterm * 0.4 + final * 0.6
         setGrade(result)
   
-        if (result >= 85) setLetterGrade('AA')
-        else if (result >= 75 && result < 85) setLetterGrade('BA')
-        else if (result >= 65 && result < 75) setLetterGrade('BB')
-        else if (result >= 57 && result < 65) setLetterGrade('CB')
-        else if (result >= 50 && result < 57) setLetterGrade('CC')
-        else if (result >= 40 && result < 50) setLetterGrade('DC')
-        else if (result >= 30 && result < 40) setLetterGrade('FD')
-        else if (result >= 0 && result < 30) setLetterGrade('FF')
+        setLetterGrade(returnLetterGrade(gecmeNotu, result)) 
   
       } else {
         setGrade('Notları doğru giriniz')
@@ -89,6 +84,41 @@ const App = () => {
           <Text style={[styles.text, {fontSize:15}]}>(Harf notu üniversiteye göre değişiklik gösterebilir)</Text>
           : <></>
         }
+
+        <Text style={{marginTop:5, textAlign:'center'}}>Geçme Notu: {gecmeNotu}</Text>
+        <Chip
+          style={styles.chip}
+          title="45"
+          onPress={() => setGecmeNotu(45)}
+          ViewComponent={LinearGradient}
+          linearGradientProps={{
+            colors: ['red', 'pink'],
+            start: {x: 0, y: 0.5},
+            end: {x: 1, y: 0.5},
+          }}
+        />
+        <Chip
+         style={styles.chip}
+          title="50"
+          onPress={() => setGecmeNotu(50)}
+          ViewComponent={LinearGradient}
+          linearGradientProps={{
+            colors: ['red', 'pink'],
+            start: {x: 0, y: 0.5},
+            end: {x: 1, y: 0.5},
+          }}
+        />
+        <Chip
+          style={styles.chip}
+          title="60"
+          onPress={() => setGecmeNotu(60)}
+          ViewComponent={LinearGradient}
+          linearGradientProps={{
+            colors: ['red', 'pink'],
+            start: {x: 0, y: 0.5},
+            end: {x: 1, y: 0.5},
+          }}
+        />  
         </View>
     </ImageBackground>
   );
@@ -96,19 +126,19 @@ const App = () => {
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: 50,
+    fontSize: 45,
     color: '#212121',
     justifyContent: 'center',
     textAlign: 'center',
-    marginBottom: 75,
+    marginBottom: 40,
   },
 
   text: {
-    fontSize: 40,
+    fontSize: 30,
     color: '#212121',
     justifyContent: 'center',
     textAlign: 'center',
-    marginTop: 20,
+    marginTop: 10,
   },
   container: {
     flex: 1,
@@ -118,6 +148,8 @@ const styles = StyleSheet.create({
   chip: {
     size: 20,
     marginLeft: 15,
+    marginRight: 15,
+    marginTop:10
   },
   image: {
     flex: 1,
